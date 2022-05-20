@@ -3,8 +3,9 @@ from transformers import pipeline
 
 @st.cache(allow_output_mutation = True)
 def load_qa_model():
-    model = pipeline("question-answering")
-    return model
+    model = tokenizer = 'deepset/roberta-base-squad2'
+    mod = pipeline(task = "question-answering", model = model, tokenizer = tokenizer)
+    return mod
 
 qa = load_qa_model()
 st.title('Question Answering App')
