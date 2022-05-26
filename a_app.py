@@ -2,6 +2,9 @@ import streamlit as st
 from transformers import pipeline
 import utils
 
+import importlib
+importlib.reload(utils)
+
 @st.cache(allow_output_mutation = True)
 def load_qa_model():
     model = tokenizer = 'deepset/roberta-base-squad2'
@@ -11,14 +14,18 @@ def load_qa_model():
 # ---- SIDEBAR ----
 options = [
     ''
-    , 'Example 1 - Apple']
+    , 'Example 1 - Apple - Wikipedia'
+    , 'Example 2 - Tesla - 2020 10-k Filing']
 
 example = st.sidebar.selectbox(label = 'Examples', options = options)
 
 default_text = default_question = ''
 
-if example == 'Example 1 - Apple':
+if example == 'Example 1 - Apple - Wikipedia':
     default_text, default_question = utils.load_apple_example()
+    
+if example == 'Example 2 - Tesla - 2020 10-k Filing':
+    default_text, default_question = utils.load_tesla_example()
 
 qa = load_qa_model()
 st.title('Question Answering App')

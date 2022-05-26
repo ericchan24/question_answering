@@ -10,3 +10,18 @@ Apple became the first publicly traded U.S. company to be valued at over $1 tril
     example_question = '''Who started this company?'''
     
     return example_text, example_question
+
+def load_tesla_example() -> str:
+    example_text = '''Overview
+
+We design, develop, manufacture, sell and lease high-performance fully electric vehicles and energy generation and storage systems, and offer services related to our sustainable energy products. We generally sell our products directly to customers, including through our website and retail locations. We also continue to grow our customer-facing infrastructure through a global network of vehicle service centers, Mobile Service technicians, body shops, Supercharger stations and Destination Chargers to accelerate the widespread adoption of our products. We emphasize performance, attractive styling and the safety of our users and workforce in the design and manufacture of our products and are continuing to develop full self-driving technology for improved safety. We also strive to lower the cost of ownership for our customers through continuous efforts to reduce manufacturing costs and by offering financial services tailored to our products. Our mission to accelerate the world’s transition to sustainable energy, engineering expertise, vertically integrated business model and focus on user experience differentiate us from other companies.
+
+Segment Information
+
+We operate as two reportable segments: (i) automotive and (ii) energy generation and storage.
+
+The automotive segment includes the design, development, manufacturing, sales and leasing of electric vehicles as well as sales of automotive regulatory credits. Additionally, the automotive segment is also comprised of services and other, which includes non-warranty after-sales vehicle services, sales of used vehicles, retail merchandise, sales by our acquired subsidiaries to third party customers and vehicle insurance revenue. The energy generation and storage segment includes the design, manufacture, installation, sales and leasing of solar energy generation and energy storage products and related services and sales of solar energy systems incentives.'''
+    
+    example_question ='''What is this company's goal?'''
+    
+    return example_text, example_question
