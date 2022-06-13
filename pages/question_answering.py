@@ -18,7 +18,7 @@ def app():
     options = [
         ''
         , 'Example 1 - Apple - Wikipedia'
-        , 'Example 2 - Tesla - 2020 10-k Filing']
+        , 'Example 2 - Tesla - 2021 10-k Filing']
 
     example = st.sidebar.selectbox(label = 'Examples', options = options)
 

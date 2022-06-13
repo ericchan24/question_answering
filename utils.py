@@ -25,3 +25,23 @@ The automotive segment includes the design, development, manufacturing, sales an
     example_question ='''What is this company's goal?'''
     
     return example_text, example_question
+
+def load_apple_example_sentiment_analysis() -> str:
+    example_text = '''Apple today announced financial results for its fiscal 2022 second quarter ended March 26, 2022. The Company posted a March quarter revenue record of $97.3 billion, up 9 percent year over year, and quarterly earnings per diluted share of $1.52.
+“This quarter’s record results are a testament to Apple’s relentless focus on innovation and our ability to create the best products and services in the world,” said Tim Cook, Apple’s CEO. “We are delighted to see the strong customer response to our new products, as well as the progress we’re making to become carbon neutral across our supply chain and our products by 2030. We are committed, as ever, to being a force for good in the world — both in what we create and what we leave behind.”
+“We are very pleased with our record business results for the March quarter, as we set an all-time revenue record for Services and March quarter revenue records for iPhone, Mac, and Wearables, Home and Accessories. Continued strong customer demand for our products helped us achieve an all-time high for our installed base of active devices,” said Luca Maestri, Apple’s CFO. “Our strong operating performance generated over $28 billion in operating cash flow, and allowed us to return nearly $27 billion to our shareholders during the quarter.”'''
+
+    return example_text
+
+def load_tesla_example_sentiment_analysis() -> str:
+    example_text = '''We may be impacted by macroeconomic conditions resulting from the global COVID-19 pandemic.
+
+Since the first quarter of 2020, there has been a worldwide impact from the COVID-19 pandemic. Government regulations and shifting social behaviors have limited or closed non-essential transportation, government functions, business activities and person-to-person interactions. In some cases, the relaxation of such trends has been followed by actual or contemplated returns to stringent restrictions on gatherings or commerce, including in parts of the U.S., and the rest of the world. 
+
+During 2020, we temporarily suspended operations at each of our manufacturing facilities worldwide, and certain of our suppliers also shut down operations temporarily or permanently, including during the recently re-imposed lockdowns in certain parts of the world. We instituted temporary employee furloughs and compensation reductions while our U.S. operations were scaled back. Temporary impediments to administrative activities supporting our operations also hampered our product deliveries and deployments. 
+
+Global trade conditions and consumer trends that originated during the pandemic continue to persist and may also have long-lasting adverse impact on us and our industries independently of the progress of the pandemic. For example, pandemic-related issues have exacerbated port congestion and intermittent supplier shutdowns and delays, resulting in additional expenses to expedite delivery of critical parts. Similarly, increased demand for personal electronics has created a shortfall of semiconductors, which has caused challenges in our supply chain and production. In addition, labor shortages resulting from the pandemic, including worker absenteeism, may lead to increased difficulty in hiring and retaining manufacturing and service workers, as well as increased labor costs. Sustaining our production trajectory will require the ongoing readiness and solvency of our suppliers and vendors, a stable and motivated production workforce and government cooperation, including for travel and visa allowances. The contingencies inherent in the construction of, and ramp at, new facilities such as Gigafactory Berlin and Gigafactory Texas may be exacerbated by these challenges.
+
+We cannot predict the duration or direction of current global trends or their sustained impact. Ultimately, we continue to monitor macroeconomic conditions to remain flexible and to optimize and evolve our business as appropriate, and we will have to accurately project demand and infrastructure requirements globally and deploy our production, workforce and other resources accordingly. If we experience unfavorable global market conditions, or if we cannot or do not maintain operations at a scope that is commensurate with such conditions or are later required to or choose to suspend such operations again, our business, prospects, financial condition and operating results may be harmed.'''
+    
+    return example_text
