@@ -1,48 +1,20 @@
+import os
 import streamlit as st
-from transformers import pipeline
-import utils
 
-import importlib
-importlib.reload(utils)
+# Custom imports 
+from multipage import MultiPage
+from pages import choose_your_task, question_answering, sentiment_analysis
 
-@st.cache(allow_output_mutation = True)
-def load_qa_model():
-    model = tokenizer = 'deepset/roberta-base-squad2'
-    mod = pipeline(task = "question-answering", model = model, tokenizer = tokenizer)
-    return mod
+# Create an instance of the app 
+app = MultiPage()
 
-# ---- SIDEBAR ----
-options = [
-    ''
-    , 'Example 1 - Apple - Wikipedia'
-    , 'Example 2 - Tesla - 2020 10-k Filing']
+# Title of the main page
+# st.title('NLP App')
 
-example = st.sidebar.selectbox(label = 'Examples', options = options)
+# Add all your application here
+app.add_page('', choose_your_task.app)
+app.add_page('Question Answering', question_answering.app)
+app.add_page('Sentiment Analysis', sentiment_analysis.app)
 
-default_text = default_question = ''
-
-if example == 'Example 1 - Apple - Wikipedia':
-    default_text, default_question = utils.load_apple_example()
-    
-if example == 'Example 2 - Tesla - 2020 10-k Filing':
-    default_text, default_question = utils.load_tesla_example()
-
-qa = load_qa_model()
-st.title('Question Answering App')
-sentence = st.text_area('Input text', height = 500, value = default_text)
-question = st.text_input('Ask a question', value = default_question)
-button = st.button('Submit')
-with st.spinner('Generating answer . . .'):
-    if button and sentence:
-        answers = qa(question = question, context = sentence)
-        st.write(answers['answer'])
-
-# Hide Streamlit branding
-hide_st_style = """
-            <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
-            header {visibility: hidden;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html = True)
+# The main app
+app.run()
