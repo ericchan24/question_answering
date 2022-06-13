@@ -2,3 +2,4 @@ click==8.0.4
 streamlit==1.9.0
 torch==1.11.0
 transformers==4.19.2
+en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.0/en_core_web_sm-2.3.0.tar.gz 
