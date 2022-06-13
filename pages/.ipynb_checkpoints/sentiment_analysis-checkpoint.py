@@ -1,3 +1,4 @@
+from collections import defaultdict
 import pandas as pd
 import spacy
 import streamlit as st
@@ -13,7 +14,7 @@ nlp = spacy.load('en_core_web_sm')
 @st.cache(allow_output_mutation = True)
 def load_sa_model():
     '''sentiment analysis model'''
-    model = tokenizer = 'ProsusAI/finbert'
+    model = tokenizer = 'yiyanghkust/finbert-tone'
     mod = pipeline(task = 'sentiment-analysis'
         , model = model
         , tokenizer = tokenizer)
@@ -60,21 +61,25 @@ def app():
                     sentence_number.append(i)
                     sentences.append(sent)
                     # use the model to find the sentiment (positive, negative, or neutral)
-                    sent_rating = mod(sent)[0]['label']
+                    sent_rating = sa_mod(sent)[0]['label']
                     sentiment_labels.append(sent_rating)
                     counter[sent_rating] += 1
-
-            df = pd.DataFrame({'SENTENCE NUM': sentence_number
-                , 'SENTENCE': sentences
-                , 'SENTIMENT': sentiment_labels})
             
+            # print report of positive, negative, neutral comments
             num_pos = counter['Positive']
             num_neg = counter['Negative']
             num_neut = counter['Neutral']
+            print(counter)
             st.write(f'Number of positive sentences: {num_pos}')
             st.write(f'Number of negative sentences: {num_neg}')
             st.write(f'Number of neutral sentences: {num_neut}')
 
+            # print dataframe of results
+            df = pd.DataFrame({'SENTENCE_NUM': sentence_number
+                , 'SENTENCE': sentences
+                , 'SENTIMENT': sentiment_labels})
+            df = df.sort_values(by = ['SENTENCE_NUM'])
+            
             st.dataframe(df, width = 500, height = 250) 
     # Hide Streamlit branding
     hide_st_style = """
