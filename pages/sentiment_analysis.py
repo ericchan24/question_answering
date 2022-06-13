@@ -1,4 +1,3 @@
-from collections import defaultdict
 import pandas as pd
 import spacy
 import streamlit as st
@@ -61,15 +60,22 @@ def app():
                     sentence_number.append(i)
                     sentences.append(sent)
                     # use the model to find the sentiment (positive, negative, or neutral)
-                    sent_rating = sa_mod(sent)[0]['label']
+                    sent_rating = mod(sent)[0]['label']
                     sentiment_labels.append(sent_rating)
                     counter[sent_rating] += 1
 
             df = pd.DataFrame({'SENTENCE NUM': sentence_number
                 , 'SENTENCE': sentences
                 , 'SENTIMENT': sentiment_labels})
+            
+            num_pos = counter['Positive']
+            num_neg = counter['Negative']
+            num_neut = counter['Neutral']
+            st.write(f'Number of positive sentences: {num_pos}')
+            st.write(f'Number of negative sentences: {num_neg}')
+            st.write(f'Number of neutral sentences: {num_neut}')
 
-            st.dataframe(df, width = 500, height = 300)  # Same as st.write(df)
+            st.dataframe(df, width = 500, height = 250) 
     # Hide Streamlit branding
     hide_st_style = """
                 <style>

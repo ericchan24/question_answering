@@ -67,8 +67,15 @@ def app():
             df = pd.DataFrame({'SENTENCE NUM': sentence_number
                 , 'SENTENCE': sentences
                 , 'SENTIMENT': sentiment_labels})
+            
+            num_pos = counter['Positive']
+            num_neg = counter['Negative']
+            num_neut = counter['Neutral']
+            st.write(f'Number of positive sentences: {num_pos}')
+            st.write(f'Number of negative sentences: {num_neg}')
+            st.write(f'Number of neutral sentences: {num_neut}')
 
-            st.dataframe(df)  # Same as st.write(df)
+            st.dataframe(df, width = 500, height = 250) 
     # Hide Streamlit branding
     hide_st_style = """
                 <style>
