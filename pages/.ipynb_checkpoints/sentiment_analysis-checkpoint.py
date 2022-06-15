@@ -7,7 +7,7 @@ import utils
 
 import importlib
 importlib.reload(utils)
-pd.set_option('max_colwidth', None)
+# pd.set_option('max_colwidth', None)
 
 nlp = spacy.load('en_core_web_sm')
 
@@ -20,22 +20,27 @@ def load_sa_model():
         , tokenizer = tokenizer)
     return mod
 
+@st.cache
+def convert_df(df):
+    # IMPORTANT: Cache the conversion to prevent computation on every rerun
+    return df.to_csv().encode('utf-8') 
+
 def app():
     # ---- SIDEBAR ----
-    # options = [
-    #     ''
-    #     , 'Example 1 - Apple - Wikipedia'
-    #     , 'Example 2 - Tesla - 2020 10-k Filing']
+    options = [
+        ''
+        , 'Example 1 - Apple - 2022 Q2 Financial Press Release'
+        , 'Example 2 - Tesla - 2021 10-k Filing - Risk Factors']
 
-    # example = st.sidebar.selectbox(label = 'Examples', options = options)
+    example = st.sidebar.selectbox(label = 'Examples', options = options)
 
     default_text = default_question = ''
 
-    # if example == 'Example 1 - Apple - Wikipedia':
-    #     default_text, default_question = utils.load_apple_example()
+    if example == 'Example 1 - Apple - 2022 Q2 Financial Press Release':
+        default_text = utils.load_apple_example_sentiment_analysis()
         
-    # if example == 'Example 2 - Tesla - 2020 10-k Filing':
-    #     default_text, default_question = utils.load_tesla_example()
+    if example == 'Example 2 - Tesla - 2021 10-k Filing - Risk Factors':
+        default_text = utils.load_tesla_example_sentiment_analysis()
 
     sa_mod = load_sa_model()
     st.title('Sentiment Analysis')
@@ -69,7 +74,7 @@ def app():
             num_pos = counter['Positive']
             num_neg = counter['Negative']
             num_neut = counter['Neutral']
-            print(counter)
+
             st.write(f'Number of positive sentences: {num_pos}')
             st.write(f'Number of negative sentences: {num_neg}')
             st.write(f'Number of neutral sentences: {num_neut}')
@@ -78,9 +83,20 @@ def app():
             df = pd.DataFrame({'SENTENCE_NUM': sentence_number
                 , 'SENTENCE': sentences
                 , 'SENTIMENT': sentiment_labels})
+            df = df.set_index('SENTENCE_NUM')
             df = df.sort_values(by = ['SENTENCE_NUM'])
+
+            print(df['SENTENCE'].values)
             
-            st.dataframe(df, width = 500, height = 250) 
+            st.dataframe(df, width = 750, height = 250) 
+
+            st.download_button(
+                label = 'Download data as CSV'
+                , data = convert_df(df)
+                , file_name = 'sentiment_analysis.csv'
+                , mime = 'text/csv'
+            )
+
     # Hide Streamlit branding
     hide_st_style = """
                 <style>
