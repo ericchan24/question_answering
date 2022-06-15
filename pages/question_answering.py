@@ -27,7 +27,7 @@ def app():
     if example == 'Example 1 - Apple - Wikipedia':
         default_text, default_question = utils.load_apple_example()
         
-    if example == 'Example 2 - Tesla - 2020 10-k Filing':
+    if example == 'Example 2 - Tesla - 2021 10-k Filing':
         default_text, default_question = utils.load_tesla_example()
 
     qa = load_qa_model()

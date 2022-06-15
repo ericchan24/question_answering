@@ -34,7 +34,7 @@ def app():
 
     example = st.sidebar.selectbox(label = 'Examples', options = options)
 
-    default_text = default_question = ''
+    default_text = ''
 
     if example == 'Example 1 - Apple - 2022 Q2 Financial Press Release':
         default_text = utils.load_apple_example_sentiment_analysis()

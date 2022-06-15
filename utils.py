@@ -45,3 +45,8 @@ Global trade conditions and consumer trends that originated during the pandemic 
 We cannot predict the duration or direction of current global trends or their sustained impact. Ultimately, we continue to monitor macroeconomic conditions to remain flexible and to optimize and evolve our business as appropriate, and we will have to accurately project demand and infrastructure requirements globally and deploy our production, workforce and other resources accordingly. If we experience unfavorable global market conditions, or if we cannot or do not maintain operations at a scope that is commensurate with such conditions or are later required to or choose to suspend such operations again, our business, prospects, financial condition and operating results may be harmed.'''
     
     return example_text
+
+def load_tesla_example_ner() -> str:
+    example_text = '''The Board of Directors serves as a prudent fiduciary for shareholders and oversees the management of Tesla’s business — including reviewing the effectiveness of Tesla’s Impact priorities, initiatives and programs and this report. With those responsibilities in mind, the Board sets high standards for Tesla and its employees, officers and directors; and we periodically add new, highly qualified independent directors to the Board, such as Larry Ellison and Kathleen Wilson-Thompson in 2018 and Hiromichi Mizuno in 2020. Implicit in this approach is the importance of sound corporate governance.'''
+
+    return example_text
