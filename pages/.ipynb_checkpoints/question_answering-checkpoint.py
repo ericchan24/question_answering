@@ -38,10 +38,14 @@ def app():
     with st.spinner('Generating answer . . .'):
         if button and sentence:
             answers = qa(question = question, context = sentence)
+<<<<<<< HEAD
             if answers['score'] >= 0.01: # threshold
                 st.write(answers['answer'])
             else:
                 st.write('No answer found.')
+=======
+            st.write(answers['answer'])
+>>>>>>> master
 
     # Hide Streamlit branding
     hide_st_style = """
