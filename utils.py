@@ -43,10 +43,33 @@ During 2020, we temporarily suspended operations at each of our manufacturing fa
 Global trade conditions and consumer trends that originated during the pandemic continue to persist and may also have long-lasting adverse impact on us and our industries independently of the progress of the pandemic. For example, pandemic-related issues have exacerbated port congestion and intermittent supplier shutdowns and delays, resulting in additional expenses to expedite delivery of critical parts. Similarly, increased demand for personal electronics has created a shortfall of semiconductors, which has caused challenges in our supply chain and production. In addition, labor shortages resulting from the pandemic, including worker absenteeism, may lead to increased difficulty in hiring and retaining manufacturing and service workers, as well as increased labor costs. Sustaining our production trajectory will require the ongoing readiness and solvency of our suppliers and vendors, a stable and motivated production workforce and government cooperation, including for travel and visa allowances. The contingencies inherent in the construction of, and ramp at, new facilities such as Gigafactory Berlin and Gigafactory Texas may be exacerbated by these challenges.
 
 We cannot predict the duration or direction of current global trends or their sustained impact. Ultimately, we continue to monitor macroeconomic conditions to remain flexible and to optimize and evolve our business as appropriate, and we will have to accurately project demand and infrastructure requirements globally and deploy our production, workforce and other resources accordingly. If we experience unfavorable global market conditions, or if we cannot or do not maintain operations at a scope that is commensurate with such conditions or are later required to or choose to suspend such operations again, our business, prospects, financial condition and operating results may be harmed.'''
-    
+        
     return example_text
 
 def load_tesla_example_ner() -> str:
     example_text = '''The Board of Directors serves as a prudent fiduciary for shareholders and oversees the management of Tesla’s business — including reviewing the effectiveness of Tesla’s Impact priorities, initiatives and programs and this report. With those responsibilities in mind, the Board sets high standards for Tesla and its employees, officers and directors; and we periodically add new, highly qualified independent directors to the Board, such as Larry Ellison and Kathleen Wilson-Thompson in 2018 and Hiromichi Mizuno in 2020. Implicit in this approach is the importance of sound corporate governance.'''
 
     return example_text
+
+def load_apple_finance() -> str:
+    example_text = '''Apple today announced financial results for its fiscal 2022 fourth quarter ended September 24, 2022. The Company posted a September quarter record revenue of $90.1 billion, up 8 percent year over year, and quarterly earnings per diluted share of $1.29, up 4 percent year over year. Annual revenue was $394.3 billion, up 8 percent year over year, and annual earnings per diluted share were $6.11, up 9 percent year over year.
+“This quarter’s results reflect Apple’s commitment to our customers, to the pursuit of innovation, and to leaving the world better than we found it,” said Tim Cook, Apple’s CEO. “As we head into the holiday season with our most powerful lineup ever, we are leading with our values in every action we take and every decision we make. We are deeply committed to protecting the environment, to securing user privacy, to strengthening accessibility, and to creating products and services that can unlock humanity’s full creative potential.”'''
+
+    example_categories = '''finance, sports'''
+    
+    return example_text, example_categories
+
+def load_world_cup_sports() -> str:
+    example_text = '''Lionel Messi, wearing a black Qatari robe over his blue-and-white Argentina shirt, kissed the World Cup, shuffled toward his teammates and hoisted the golden trophy high in the air.
+
+It was an iconic sight that finally — definitively — places the soccer superstar in the pantheon of the game’s greatest players.
+
+Messi’s once-in-a-generation career is complete: He is a World Cup champion.
+
+In probably the wildest final in the tournament’s 92-year history, Argentina won its third World Cup title by beating France 4-2 in a penalty shootout after a 3-3 draw featuring two goals from the 35-year-old Messi and a hat trick by his heir apparent, France forward Kylian Mbappé.
+
+“It’s just crazy that it became a reality this way,” Messi said. “I craved for this so much. I knew God would bring this gift to me. I had the feeling that this (World Cup) was the one.”'''
+
+    example_categories = '''finance, sports'''
+    
+    return example_text, example_categories
