@@ -26,7 +26,7 @@ def app():
         default_text, default_categories = utils.load_apple_finance()
         
     if example == 'Example 2 - World Cup - Sports News':
-        default_text, default_categories = utils.world_cup_sports()
+        default_text, default_categories = utils.load_world_cup_sports()
         
     zero_shot_classification = load_zero_shot_classification_model()
     st.title('Zero Shot Classification')
@@ -40,11 +40,11 @@ def app():
     with st.spinner('Generating answer . . .'):
         if button and sentence:
             try:
-                answers = zero_shot_classification(answer, categories)
+                answers = zero_shot_classification(sentence, categories)
                 label = answers['labels'][0]
                 score = answers['scores'][0] 
 
-                st.write(f'Predicted Category: {label}, Predicted Probability: {score}')
+                st.write(f'Predicted Category: {label}, Predicted Probability: {score:.2f}')
             except:
                 st.write('Something went wrong, please try again')
 
