@@ -8,7 +8,8 @@ importlib.reload(utils)
 @st.cache(allow_output_mutation = True)
 def load_zero_shot_classification_model():
     mod = pipeline("zero-shot-classification"
-        , model = "facebook/bart-large-mnli")
+        , model = "valhalla/distilbart-mnli-12-1"
+#         , model = "facebook/bart-large-mnli") # this model is too large to work on streamlit
     return mod
 
 def app():
